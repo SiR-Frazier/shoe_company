@@ -1,0 +1,18 @@
+<h2><%= @store.name%></h2>
+
+<div class="well">
+  <% if @shoes.any?() %>
+
+  <h2>Here are the available brands: </h2>
+
+  <ul>
+    <% @shoes.each() do |shoe| %>
+      <li><a href="/shoes/<%=shoe.id() %>"><%= shoe.brand %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+
+  <h2>Currently, we're all sold out. Please try again soon!</h2>
+
+  <% end %>
+</div>
