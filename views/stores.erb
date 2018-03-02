@@ -1,0 +1,17 @@
+<h1>Participating Shoe Stores</h1>
+
+<div class="well">
+  <ul>
+    <% @stores.each() do |store| %>
+      <li><a href="/stores/<%id() %>"><%= store.name %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="well">
+  <form action="/stores" method="post">
+    <input type="text" name="title" placeholder="Add Store">
+    <br>
+    <button type="submit" class="btn btn-success">Update</button>
+  </form>
+</div>  
