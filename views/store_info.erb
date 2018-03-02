@@ -6,7 +6,7 @@
   <h2>Here are the available brands: </h2>
 
   <ul>
-    <% @shoes.each() do |shoe| %>
+    <% @shoes.each do |shoe| %>
       <li><a href="/shoes/<%=shoe.id() %>"><%= shoe.brand %></a></li>
     <% end %>
   </ul>
@@ -15,4 +15,9 @@
   <h2>Currently, we're all sold out. Please try again soon!</h2>
 
   <% end %>
+
+  <form action="/shoes/<%=shoe.id()%>" method="post">
+    <input name="_method" type="hidden" value="delete">
+
+    <button type="submit">Delete Store</button>
 </div>

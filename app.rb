@@ -18,11 +18,6 @@ get('/stores') do
   erb(:stores)
 end
 
-get('/shoes') do
-  @shoes = Shoe.all()
-  erb(:shoes)
-end
-
 post('/stores') do
   name = params[:name]
   @store = Store.create({:name => name})
@@ -34,6 +29,11 @@ get('/stores/:id') do
   name = params[:name]
   @store = Store.find(params.fetch("id").to_i())
   erb(:store_info)
+end
+
+get('/shoes') do
+  @shoes = Shoe.all()
+  erb(:shoes)
 end
 
 post('/shoes') do
