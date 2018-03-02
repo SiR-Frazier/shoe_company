@@ -1,0 +1,8 @@
+require('sinatra')
+require('sinatra/reloader')
+require("sinatra/activerecord")
+require('sinatra/reloader')
+require('pry')
+require('pg')
+require("./lib/shoe")
+require("./lib/store")

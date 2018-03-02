@@ -1,0 +1,8 @@
+ENV['RACK_ENV'] = 'test'
+require 'sinatra'
+require 'sinatra/activerecord'
+require 'rspec'
+require 'pry'
+require 'pg'
+require 'shoe'
+require 'store'
