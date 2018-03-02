@@ -1,6 +1,3 @@
-Class Shoe < ActiveRecord::Base
-  has_belongs_to_many :stores
-
-  def self.findbrand(search_brand)
-  end
+class Shoe < ActiveRecord::Base
+  has_and_belongs_to_many :stores
 end
