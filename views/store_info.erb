@@ -10,14 +10,21 @@
       <li><a href="/shoes/<%=shoe.id() %>"><%= shoe.brand %></a></li>
     <% end %>
   </ul>
+
   <% else %>
 
   <h2>Currently, we're all sold out. Please try again soon!</h2>
 
   <% end %>
 
-  <form action="/shoes/<%=shoe.id()%>" method="post">
-    <input name="_method" type="hidden" value="delete">
 
+  <form action="/store/<%=shoe.id()%>" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit">Add Brand</button>
+  </form>
+
+  <form action="/store/<%=store.id()%>" method="post">
+    <input name="_method" type="hidden" value="delete">
     <button type="submit">Delete Store</button>
+  </form>
 </div>

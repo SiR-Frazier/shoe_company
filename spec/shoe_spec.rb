@@ -1,11 +1,8 @@
 require 'spec_helper'
 
   describe(Shoe) do
-    describe(".findbrand") do
-      it("sorts shoes by their brand") do
-        test_shoe = Shoe.create({:brand => "Nike", :price => 110, :id => nil})
-        test_shoe2 = Shoe.create({:brand => "Adidas", :price => 100, :id => nil})
-          expect(Shoe.findbrand("Nike")).to(eq([test_shoe]))
-      end
+    it("checks to make sure field is not empty") do
+      shoe = Shoe.new({:brand => ""})
+      expect(shoe.save()).to(eq(false))
     end
   end

@@ -8,6 +8,9 @@ require('pg')
 require('./lib/shoe.rb')
 require('./lib/store.rb')
 
+ DB = PG.connect({:dbname => "shoe_store_test"})
+
+#stores
 get('/') do
   @stores = Store.all()
   erb(:home)
@@ -31,6 +34,15 @@ get('/stores/:id') do
   erb(:store_info)
 end
 
+delete('/stores/:id') do
+  @store = Store.find(params.fetch("id").to_i())
+  @store.delete()
+  @stores = Store.all()
+  erb(:stores)
+end
+
+#Shoes
+
 get('/shoes') do
   @shoes = Shoe.all()
   erb(:shoes)
@@ -42,4 +54,11 @@ post('/shoes') do
   @shoe = Shoe.create({:brand => brand, :price => price})
   @shoes = Shoe.all()
   erb(:shoes)
+end
+
+delete('/shoes/:id') do
+  @shoe = Shoe.find(params.fetch("id").to_i())
+  @shoe.delete()
+  @shoes = Shoe.all
+  erb(:shoe_info)
 end
