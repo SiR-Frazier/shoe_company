@@ -34,6 +34,14 @@ get('/stores/:id') do
   erb(:store_info)
 end
 
+patch('/stores/:id/update') do
+  name = params[:name]
+  @store = Store.find(params.fetch("id").to_i())
+  @store.update({:name => name})
+  @stores = Store.all
+  erb(:store_info)
+end
+
 delete('/stores/:id') do
   @store = Store.find(params.fetch("id").to_i())
   @store.delete()
