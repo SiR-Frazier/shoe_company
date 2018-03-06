@@ -6,7 +6,7 @@
 
   <ul>
     <% @stores.each() do |store| %>
-      <li><a href="/stores/<%=store.id()%>/edit"><%=store.name()%></a></li>
+      <li><a href="/stores/<%= store.id() %>/edit"><%=store.name()%></a></li>
     <% end %>
   </ul>
 

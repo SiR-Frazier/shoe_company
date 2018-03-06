@@ -34,11 +34,11 @@ get('/stores/:id') do
   erb(:store_info)
 end
 
-patch('/stores/:id/update') do
+patch('/stores/:id/edit') do
   name = params[:name]
   @store = Store.find(params.fetch("id").to_i())
   @store.update({:name => name})
-  @stores = Store.all
+  @stores = Store.all()
   erb(:store_info)
 end
 
@@ -64,9 +64,17 @@ post('/shoes') do
   erb(:shoes)
 end
 
+patch('/shoes/:id/edit') do
+  brand = params[:brand]
+  @shoe = Shoe.find(params.fetch("id").to_i())
+  @shoe.update({:brand => brand})
+  @shoes = Shoe.all()
+  erb(:shoe_edit)
+end
+
 delete('/shoes/:id') do
   @shoe = Shoe.find(params.fetch("id").to_i())
   @shoe.delete()
   @shoes = Shoe.all
-  erb(:shoe_info)
+  erb(:shoes)
 end
