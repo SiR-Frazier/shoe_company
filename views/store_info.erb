@@ -7,7 +7,7 @@
 
   <ul>
     <% @shoes.each do |shoe| %>
-      <li><a href="/shoes/<%=shoe.id() %>"><%= shoe.brand %></a></li>
+      <li><a href="/shoes/<%=shoe.id()%>"><%= shoe.brand %></a></li>
     <% end %>
   </ul>
 
@@ -18,7 +18,7 @@
   <% end %>
 
 
-  <form action="/store/<%=shoe.id()%>" method="post">
+  <form action="/store/<%=shoe.id()/edit%>" method="post">
     <input name="_method" type="hidden" value="delete">
     <button type="submit">Add Brand</button>
   </form>

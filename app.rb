@@ -31,6 +31,14 @@ end
 get('/stores/:id') do
   name = params[:name]
   @store = Store.find(params.fetch("id").to_i())
+  @shoes = Shoe.all()
+  erb(:store_info)
+end
+
+
+get('/stores/:id/edit') do
+  @store = Store.find(params.fetch("id").to_i())
+  @shoes = Shoe.all()
   erb(:store_info)
 end
 

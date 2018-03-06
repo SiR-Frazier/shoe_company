@@ -6,10 +6,10 @@
 
   <ul>
     <% @shoes.each() do |shoe| %>
-      <li><a href="/shoes/<%=shoe.id() %>"><%= shoe.brand %></a></li>
+      <li><a href="/shoes/<%=shoe.id()/edit%>"><%= shoe.brand %></a></li>
     <% end %>
   </ul>
-  
+
   <% else %>
 
   <h2>Currently, there aren't any. Please check back soon.</h2>
@@ -19,7 +19,9 @@
 
 <div class="well">
   <form action="/shoes" method="post">
+    <label for="brand">Brand:</label>
     <input type="text" name="brand" placeholder="Add Brand">
+    <label for="price">Price</label>
     <input type="text" name="price" placeholder="Add Price $">
     <br>
     <br>

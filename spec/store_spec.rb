@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe(Store) do
+  it { should has_and_belongs_to_many(:shoes) }
+
   it("checks to make sure name field is not empty") do
     store = Store.new({:name => ""})
     expect(store.save()).to(eq(false))
