@@ -1,8 +1,6 @@
 require 'spec_helper'
 
   describe(Shoe) do
-    it { should has_and_belongs_to_many(:stores) }
-
     it("checks to make sure brand field is not empty") do
       shoe = Shoe.new({:brand => ""})
       expect(shoe.save()).to(eq(false))
@@ -17,4 +15,6 @@ require 'spec_helper'
       shoe =Shoe.new({:brand => "x".*(101)})
       expect(shoe.save()).to(eq(false))
     end
+
+      # it { should has_and_belongs_to_many(:stores) }
   end
