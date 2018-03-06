@@ -11,6 +11,6 @@ class Shoe < ActiveRecord::Base
   end
 
   def currency_converter
-    self.brand = brand.concat(".00")
+    self.price = price.prepend("$").concat(".00")
   end
 end

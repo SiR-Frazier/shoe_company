@@ -37,8 +37,9 @@ end
 
 
 get('/stores/:id/edit') do
+  name = params[:name]
   @store = Store.find(params.fetch("id").to_i())
-  @shoes = Shoe.all()
+  @shoe = Shoe.all()
   erb(:store_info)
 end
 
@@ -67,8 +68,10 @@ end
 post('/shoes') do
   brand = params[:brand]
   price = params[:price]
-  @shoe = Shoe.create({:brand => brand, :price => price})
+  @shoe = Shoe.new({:brand => brand, :price => price})
   @shoes = Shoe.all()
+  @shoe.save()
+  binding.pry
   erb(:shoes)
 end
 
@@ -77,10 +80,10 @@ patch('/shoes/:id/edit') do
   @shoe = Shoe.find(params.fetch("id").to_i())
   @shoe.update({:brand => brand})
   @shoes = Shoe.all()
-  erb(:shoe_edit)
+  erb(:shoe_info)
 end
 
-delete('/shoes/:id') do
+delete('/shoes/:id/edit') do
   @shoe = Shoe.find(params.fetch("id").to_i())
   @shoe.delete()
   @shoes = Shoe.all
