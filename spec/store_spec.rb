@@ -10,7 +10,4 @@ describe(Store) do
     store =Store.new({:name => "x".*(101)})
     expect(store.save()).to(eq(false))
   end
-
-  # it { should has_and_belongs_to_many(:shoes) }
-
 end

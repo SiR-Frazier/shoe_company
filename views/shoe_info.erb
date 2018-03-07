@@ -15,4 +15,12 @@
   <h2>Currently, this shoe isn't available at any stores. Please check again soon!</h2>
 
   <% end %>
+
+
+
+  <form action="/shoes/<%=@shoe.id()%>" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button type="submit">Delete Shoe</button>
+  </form>
+
 </div>

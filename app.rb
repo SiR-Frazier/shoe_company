@@ -51,7 +51,7 @@ patch('/stores/:id/edit') do
   erb(:store_info)
 end
 
-delete('/stores/:id') do
+delete('/store/:id') do
   @store = Store.find(params.fetch("id").to_i())
   @store.delete()
   @stores = Store.all()
@@ -71,21 +71,35 @@ post('/shoes') do
   @shoe = Shoe.new({:brand => brand, :price => price})
   @shoes = Shoe.all()
   @shoe.save()
-  binding.pry
   erb(:shoes)
 end
 
-patch('/shoes/:id/edit') do
+get ('/shoes/:id') do
+  @shoe = Shoe.find(params.fetch("id").to_i())
+  @stores = @shoe.stores
+  @shoes = Shoe.all
+  erb(:shoe_info)
+end
+
+patch('/shoes/:id/') do
   brand = params[:brand]
   @shoe = Shoe.find(params.fetch("id").to_i())
-  @shoe.update({:brand => brand})
+  @shoe.update({:brand => brand})#update price?
   @shoes = Shoe.all()
   erb(:shoe_info)
 end
 
-delete('/shoes/:id/edit') do
+delete('/shoes/:id') do
   @shoe = Shoe.find(params.fetch("id").to_i())
   @shoe.delete()
   @shoes = Shoe.all
   erb(:shoes)
+end
+
+post('/shoes/:id/edit') do
+  @store = Store.find(params.fetch("id").to_i)
+  shoe = Shoe.find(params.fetch("id").to_i)
+  @store.shoes.push(shoe)
+  @shoes.all()
+  erb(:store_info)
 end
