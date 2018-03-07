@@ -41,7 +41,10 @@ get('/stores/:id/edit') do
   @shoes = Shoe.all()
   erb(:store_info)
 end
-#
+
+get ('/store/:id') do
+
+end
 # patch('/stores/:id/edit') do
 #   name = params[:name]
 #   brand = params[:brand]
@@ -54,14 +57,21 @@ end
 
 post('/store/:id') do #add brand to store
   brand = params[:brand]
-  @store = Store.find(params.fetch("id").to_i())
-  # @shoe = Shoe.find(params.fetch("id").to_i())
-  @shoes = Shoe.all()
-  @shoe = Shoe.create({:brand => brand, :price => 0})
+  @store = Store.find(params.fetch("id").to_i)
+  @shoe = Shoe.find(params.fetch("id").to_i)
+  @store.shoes.push(@shoe)
   @shoe.save()
-  @store.shoes << @shoe unless @store.shoes.include?(@shoe)
   erb(:store_info)
 end
+
+#   brand = params[:brand]
+#   @store = Store.find(params.fetch("id").to_i())
+#   @shoes = Shoe.all()
+#   @shoe = Shoe.create({:brand => brand, :price => 0})
+#   @shoe.save()
+#   @store.shoes << @shoe unless @store.shoes.include?(@shoe)
+#   erb(:store_info)
+# end
 
 delete('/store/:id') do
   @store = Store.find(params.fetch("id").to_i())
@@ -75,8 +85,8 @@ post('/stores/:id/edit') do
   @shoe = Shoe.find(params.fetch("id").to_i())
   @store = Store.find(params.fetch("id").to_i())
   @shoe.update({:brand => brand})
-  @shoes = Shoe.all()
   @shoes.save()
+  @shoes = Shoe.all()
   erb(:shoe_info)
 end
 
@@ -122,6 +132,5 @@ post('/shoes/:id/edit') do
   @store = Store.find(params.fetch("id").to_i)
   @shoe = Shoe.find(params.fetch("id").to_i)
   @store.shoes.push(store)
-  @shoes.all()
   erb(:store_info)
 end

@@ -6,7 +6,7 @@
 
   <ul>
     <% @shoes.each() do |shoe| %>
-      <li><a href="/shoes/<%=shoe.id()%>"><%= shoe.brand %> <%= shoe.price %></a></li>
+      <li><a href="/shoes/<%=shoe.id()%>"><%= shoe.brand %>  $<%= shoe.price %></a></li>
     <% end %>
   </ul>
 
