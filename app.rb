@@ -51,6 +51,15 @@ patch('/stores/:id/edit') do
   erb(:store_info)
 end
 
+post('/store/:id') do
+  brand = params[:brand]
+  @store = Store.find(params.fetch("id").to_i())
+  @shoes = Shoe.all()
+  @shoe = Shoe.create({:brand => brand})
+  @shoe.save()
+  erb(:store_info)
+end
+
 delete('/store/:id') do
   @store = Store.find(params.fetch("id").to_i())
   @store.delete()
