@@ -17,7 +17,7 @@
 
   <% end %>
 
-  <form action="/store/<%=@shoe.id()%>" method="post">
+  <form action="/store/<%=shoe.id()%>" method="post">
     <label for="shoe">Select a Shoe</label>
     <select id='shoe' name='shoe' type='text'>
       <% @shoe.each() do |shoe| %>

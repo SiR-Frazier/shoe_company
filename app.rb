@@ -98,7 +98,7 @@ end
 
 post('/shoes/:id/edit') do
   @store = Store.find(params.fetch("id").to_i)
-  shoe = Shoe.find(params.fetch("id").to_i)
+  @shoe = Shoe.find(params.fetch("id").to_i)
   @store.shoes.push(shoe)
   @shoes.all()
   erb(:store_info)

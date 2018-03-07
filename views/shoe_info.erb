@@ -18,7 +18,7 @@
 
 
 
-  <form action="/shoes/<%=@shoe.id()%>" method="post">
+  <form action="/shoes/<%= @shoe.id()%>" method="post">
     <input name="_method" type="hidden" value="delete">
     <button type="submit">Delete Shoe</button>
   </form>
