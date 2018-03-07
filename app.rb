@@ -39,7 +39,7 @@ end
 get('/stores/:id/edit') do
   name = params[:name]
   @store = Store.find(params.fetch("id").to_i())
-  @shoe = Shoe.all()
+  @shoes = Shoe.all()
   erb(:store_info)
 end
 
