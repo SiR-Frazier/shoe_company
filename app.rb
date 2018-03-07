@@ -55,11 +55,11 @@ end
 post('/store/:id') do #add brand to store
   brand = params[:brand]
   @store = Store.find(params.fetch("id").to_i())
-  @shoe = Shoe.find(params.fetch("id").to_i())
+  # @shoe = Shoe.find(params.fetch("id").to_i())
   @shoes = Shoe.all()
-  @shoe = Shoe.create({:brand => brand})
+  @shoe = Shoe.create({:brand => brand, :price => 0})
   @shoe.save()
-  @store.shoes << @shoe unless store.shoes.include?(@shoe)
+  @store.shoes << @shoe unless @store.shoes.include?(@shoe)
   erb(:store_info)
 end
 

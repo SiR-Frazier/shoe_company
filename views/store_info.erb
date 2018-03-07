@@ -19,7 +19,7 @@
 
   <form action="/store/<%=@store.id()%>" method="post">
     <label for="shoe">Select a Shoe</label>
-    <select id='shoe' name='shoe' type='text'>
+    <select id='shoe' name='brand' type='text'>
       <% @shoes.each() do |shoe| %>
         <option value="<%= shoe.id()%>"> <%= shoe.brand() %> </option>
       <% end %>
