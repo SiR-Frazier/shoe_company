@@ -6,7 +6,7 @@
   <h2>This shoe is available at the following stores: </h2>
 
   <ul>
-    <% @shoe.store.each do |store| %>
+    <% @shoe.stores.each do |store| %>
       <li><a href="/stores/<%= store.id() %>"><%= store.name %></a></li>
     <% end %>
   </ul>
