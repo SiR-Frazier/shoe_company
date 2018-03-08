@@ -56,9 +56,10 @@ end
 # end
 
 post('/store/:id') do #add brand to store
+  binding.pry
   brand = params[:brand]
   @store = Store.find(params.fetch("id").to_i)
-  @shoe = Shoe.find(params.fetch("id").to_i)
+  @shoe = Shoe.find(params.fetch("shoe_id").to_i)
   @store.shoes.push(@shoe)
   @shoes = Shoe.all()
   @shoe.save()
