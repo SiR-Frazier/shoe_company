@@ -16,7 +16,7 @@ _This application is for a fake, non-profit shoe distribution that is designed t
 
 ## Known Bugs
 
-_Currently, unable to view added shoes or stores. Also, application is experiencing routing issues._
+_N/A
 
 ## Support and contact details
 
