@@ -60,6 +60,7 @@ post('/store/:id') do #add brand to store
   @store = Store.find(params.fetch("id").to_i)
   @shoe = Shoe.find(params.fetch("id").to_i)
   @store.shoes.push(@shoe)
+  @shoes = Shoe.all()
   @shoe.save()
   erb(:store_info)
 end
