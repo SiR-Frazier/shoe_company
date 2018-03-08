@@ -16,7 +16,7 @@ _This application is for a fake, non-profit shoe distribution that is designed t
 
 ## Known Bugs
 
-_N/A
+_N/A_
 
 ## Support and contact details
 
